@@ -1,0 +1,427 @@
+* { 
+  box-sizing: border-box; 
+} 
+ 
+#root { 
+  width: 100% !important; 
+  max-width: 100% !important; 
+  border-inline: none !important; 
+  margin: 0 !important; 
+  min-height: 100vh !important; 
+  height: 100vh !important; 
+  text-align: left !important; 
+  overflow: hidden !important; 
+} 
+ 
+body { 
+  margin: 0; 
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+  background: #0b0f19; /* Deep slate background */
+  color: #e2e8f0; 
+  overflow: hidden; 
+} 
+ 
+.app { 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+} 
+ 
+.dashboard { 
+  display: flex; 
+  flex: 1; 
+  overflow: hidden; 
+} 
+ 
+.sidebar { 
+  width: 260px; 
+  background: #111827; /* Dark panel */
+  border-right: 1px solid #1f2937;
+  padding: 1.5rem 1.25rem; 
+  display: flex; 
+  flex-direction: column; 
+  overflow-y: auto; 
+} 
+ 
+.sidebar h2 { 
+  font-size: 0.9rem; 
+  font-weight: 600; 
+  margin: 0 0 0.5rem 0; 
+  /* Violet-Purple Gradient Text */
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+} 
+ 
+.settings-section { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+  margin-bottom: 12px; 
+} 
+ 
+.settings-label { 
+  font-size: 13px; 
+  color: #9ca3af; 
+  font-weight: 500;
+} 
+ 
+.slider-value { 
+  font-size: 13px; 
+  color: #a78bfa; 
+  font-weight: 600;
+} 
+ 
+.settings-divider { 
+  height: 1px; 
+  background-color: #1f2937; 
+  margin: 5px 0; 
+} 
+ 
+/* Custom inputs */ 
+.radio-label, .checkbox-label { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  font-size: 13px; 
+  color: #e2e8f0; 
+  cursor: pointer; 
+  margin-bottom: 2px; 
+  transition: color 0.2s;
+} 
+.radio-label:hover, .checkbox-label:hover {
+  color: #fff;
+}
+ 
+.radio-label input[type="radio"], 
+.checkbox-label input[type="checkbox"] { 
+  display: none; 
+} 
+ 
+.custom-radio { 
+  width: 16px; 
+  height: 16px; 
+  border-radius: 50%; 
+  border: 2px solid #6b7280; 
+  position: relative; 
+  transition: all 0.2s ease; 
+} 
+ 
+.radio-label input[type="radio"]:checked + .custom-radio { 
+  border-color: #8b5cf6; 
+} 
+ 
+.radio-label input[type="radio"]:checked + .custom-radio::after { 
+  content: ""; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 8px; 
+  height: 8px; 
+  border-radius: 50%; 
+  background-color: #8b5cf6; 
+} 
+ 
+.custom-checkbox { 
+  width: 16px; 
+  height: 16px; 
+  border-radius: 4px; 
+  border: 2px solid #6b7280; 
+  position: relative; 
+  transition: all 0.2s ease; 
+} 
+ 
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox { 
+  background-color: #8b5cf6; 
+  border-color: #8b5cf6; 
+} 
+ 
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after { 
+  content: "✓"; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color: white; 
+  font-size: 12px; 
+} 
+ 
+.accent-slider { 
+  -webkit-appearance: none; 
+  width: 100%; 
+  height: 6px; 
+  background: #374151; 
+  border-radius: 3px; 
+  outline: none; 
+  margin-top: 5px; 
+} 
+ 
+.accent-slider::-webkit-slider-thumb { 
+  -webkit-appearance: none; 
+  appearance: none; 
+  width: 14px; 
+  height: 14px; 
+  border-radius: 50%; 
+  background: #8b5cf6; 
+  cursor: pointer; 
+  transition: transform 0.1s;
+} 
+.accent-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+ 
+.main-content { 
+  flex: 1; 
+  padding: 2rem 0.5rem; 
+  display: flex; 
+  flex-direction: column; 
+  overflow-y: auto; 
+  background: #0b0f19; 
+} 
+ 
+.main-header { 
+  margin-bottom: 1.5rem; 
+} 
+ 
+.title { 
+  font-size: 2rem; 
+  font-weight: 700; 
+  margin: 0 0 0.5rem 0 !important; 
+  line-height: 1.2;
+  color: #fafafa;
+} 
+
+.gradient-text {
+  /* Violet-Purple Gradient Text for Main Title */
+  background: linear-gradient(135deg, #c4b5fd, #8b5cf6, #6d28d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+} 
+ 
+.subtitle-container { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 0.5rem; 
+} 
+ 
+.subtitle-icon { 
+  font-size: 1.3rem; 
+} 
+ 
+.subtitle { 
+  font-size: 1.1rem; 
+  font-weight: 500; 
+  color: #9ca3af;
+  margin: 0 !important; 
+} 
+ 
+.status-indicator { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  font-size: 14px; 
+  color: #9ca3af; 
+  font-weight: 500;
+} 
+ 
+.status-dot { 
+  width: 10px; 
+  height: 10px; 
+  border-radius: 50%; 
+  background: #4b5563; 
+} 
+ 
+.status-dot.connected { 
+  background: #10b981; 
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+} 
+ 
+.camera-error { 
+  padding: 12px 20px; 
+  background: rgba(239, 68, 68, 0.1); 
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #fca5a5; 
+  border-radius: 6px; 
+  margin-bottom: 15px; 
+} 
+ 
+.capture-canvas { 
+  display: none; 
+} 
+ 
+.content-workspace { 
+  display: flex; 
+  gap: 24px; 
+  align-items: flex-start; 
+  flex-wrap: nowrap; 
+  flex: 1; 
+  min-height: 0; 
+} 
+ 
+.video-container { 
+  position:relative; 
+  flex: 1;
+  min-width: 500px;
+  height: 480px; 
+  overflow:hidden; 
+  background: #111827; 
+  border: 1px solid #1f2937;
+  border-radius: 12px; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+} 
+ 
+.camera-video { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: fill; 
+  display: block; 
+} 
+ 
+.overlay-layer { 
+  position: absolute; 
+  inset: 0; 
+} 
+ 
+.bounding-box { 
+  position: absolute; 
+  border: 2px solid #10b981; 
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  pointer-events: none; 
+  border-radius: 4px;
+} 
+ 
+.detection-card { 
+  position: absolute; 
+  background: rgba(17, 24, 39, 0.85); 
+  border: 1px solid #10b981; 
+  border-radius: 6px; 
+  padding: 10px 12px; 
+  min-width: 150px; 
+  font-size: 13px; 
+  line-height: 1.5; 
+  z-index: 10; 
+  pointer-events: none; 
+  color: #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+} 
+ 
+.crop-name { 
+  font-size: 14px; 
+  font-weight: 700; 
+  margin-bottom: 4px; 
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================================ */
+/* LIGHT MODE THEME OVERRIDES       */
+/* ================================ */
+
+body.light-mode {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+body.light-mode .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+body.light-mode .main-content {
+  background: #f8fafc;
+}
+
+body.light-mode .title {
+  color: #0f172a;
+}
+
+body.light-mode .subtitle {
+  color: #475569;
+}
+
+body.light-mode .settings-label {
+  color: #475569;
+}
+
+body.light-mode .settings-divider {
+  background-color: #e2e8f0;
+}
+
+body.light-mode .radio-label, 
+body.light-mode .checkbox-label {
+  color: #334155;
+}
+
+body.light-mode .radio-label:hover, 
+body.light-mode .checkbox-label:hover {
+  color: #0f172a;
+}
+
+body.light-mode .custom-radio,
+body.light-mode .custom-checkbox {
+  border-color: #cbd5e1;
+}
+
+body.light-mode .accent-slider {
+  background: #e2e8f0;
+}
+
+body.light-mode .status-indicator {
+  color: #475569;
+}
+
+body.light-mode .status-dot {
+  background: #cbd5e1;
+}
+
+body.light-mode .video-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .detection-card {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fafafa;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode .theme-toggle-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+body.light-mode .theme-toggle-btn:hover {
+  background: #f8fafc;
+}

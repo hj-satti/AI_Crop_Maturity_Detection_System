@@ -1,0 +1,17 @@
+/myenv
+.venv/
+.env
+/videos
+.torch_hub/
+
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+`
+

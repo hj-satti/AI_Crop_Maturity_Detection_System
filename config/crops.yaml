@@ -1,0 +1,24 @@
+tomato:
+  optimal_temperature: "18-21 C"
+  stages: [Unripe, Ripe, Overripe]
+  harvest_rules:
+    Unripe:    { readiness: low,    time: "7-14 days" }
+    Ripe:      { readiness: high,   time: "now"        }
+    Overripe:  { readiness: high,   time: "now"        }
+
+mango:
+  optimal_temperature: "20-23 C"
+  stages: [Unripe, Ripe, Overripe]
+  harvest_rules:
+    Unripe:    { readiness: low,    time: "5-9 days" }
+    Ripe:      { readiness: high,   time: "now"       }
+    Overripe:  { readiness: high,   time: "now"       }
+
+strawberry:
+  optimal_temperature: "10-27 C"
+  stages: [Unripe, Ripe, Overripe]
+  harvest_rules:
+    Unripe:    { readiness: low,    time: "7-10 days" }
+    Ripe:      { readiness: high,   time: "now"        }
+    Overripe:  { readiness: high,   time: "now"        }
+

@@ -1,0 +1,11 @@
+services:
+  backend:
+    volumes:
+      - ./backend:/app/backend
+      - ./analysis:/app/analysis
+      - ./cv:/app/cv
+      - ./config:/app/config
+
+  frontend:
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
