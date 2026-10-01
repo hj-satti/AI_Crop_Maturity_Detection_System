@@ -19,7 +19,7 @@ YOLOV5_LOCAL = PROJECT_ROOT / "third_party" / "yolov5"
 TORCH_HUB_DIR = PROJECT_ROOT / ".torch_hub"
 
 # Operational filter used by this trained YOLOv5s detector.
-# README previously mentioned 65%; runtime behavior is 40%.
+# Default confidence threshold; runtime behavior is 40%.
 CONFIDENCE = 0.40
 
 

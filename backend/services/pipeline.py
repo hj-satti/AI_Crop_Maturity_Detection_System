@@ -46,11 +46,11 @@ class DetectionPipeline:
             roi = frame[max(0, y1):min(h, y2), max(0, x1):min(w, x2)]
             
             try:
-                # Run Maturity Engine[cite: 3]
+                # Run Maturity Engine
                 maturity_data = predict_maturity(roi, det["crop"])
                 det["maturity"] = maturity_data
                 
-                # Run Harvest Engine[cite: 4]
+                # Run Harvest Engine
                 harvest_data = predict_harvest(det["crop"], maturity_data["stage"])
                 det["harvest"] = harvest_data
 
@@ -59,7 +59,7 @@ class DetectionPipeline:
                 det["temperature"] = crop_info["optimal_temperature"]
                 
             except Exception as e:
-                # Handle unsupported crops gracefully[cite: 3, 4]
+                # Handle unsupported crops gracefully
                 print(f"CRASH AVOIDED - Engine Error: {type(e).__name__} - {e}")
                 det["maturity"] = {"stage": "unknown", "score": 0}
                 det["harvest"] = {"readiness": "unknown", "estimated_time": "unknown"}
